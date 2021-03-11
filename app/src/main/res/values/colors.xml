@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#262938</color>
+    <color name="colorPrimaryDark">#04081b</color>
+    <color name="colorAccent">#1b5e20</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorTransparent">#cccccc</color>
+    <color name="green">#00c853</color>
+    <color name="edit_text">#1b5e20</color>
+    <color name="text">#000000</color>
+    <color name="address">#2F7092</color>
+    <color name="followers">#0D5D98</color>
+    <color name="headings">#3797CF</color>
+    <color name="solidCircle">#AAFFFFFF</color>
+    <color name="circleBorder">#50FFFFFF</color>
+    <color name="gradEnd">#67EFC8</color>
+    <color name="gradStart">#63C9FF</color>
+    <color name="followersBg">#65DCE5</color>
+    <color name="followingBg">#49BEFF</color>
+    <color name="grey">#E5E5E5</color>
+    <color name="darkColor">#222222</color>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#262938</color>
+    <color name="purple_700">#04081b</color>
+    <color name="teal_200">@android:color/holo_orange_dark</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="bg_color">#f3f5f9</color>
+    <color name="darkgrey">#424242</color>
+    <color name="text_color">#04081b</color>
+    <color name="text_color_dark">#FFFFFFFF</color>
+    <color name="gradientViolet">#8A52E9</color>
+    <color name="gradientLightBlue">#376DF6</color>
+    <color name="blue_light">#adcbe3</color>
+
+</resources>

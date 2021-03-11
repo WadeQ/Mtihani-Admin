@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/slide_image"
+        android:layout_width="@dimen/_256sdp"
+        android:layout_height="@dimen/_170sdp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_42sdp"
+        android:src="@drawable/knecgirl"
+        app:civ_border_color="@color/colorAccent"
+        app:civ_border_width="@dimen/_1sdp" />
+
+    <TextView
+        android:id="@+id/slide_heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_230sdp"
+        android:gravity="center"
+        android:shadowColor="#B71C1C"
+        android:shadowRadius="4"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:text="@string/slide_header_1"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/_20ssp"
+        android:textStyle="bold"
+        app:fontFamily="sans-serif" />
+
+    <android.support.v7.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view"
+        android:layout_width="@dimen/_278sdp"
+        android:layout_height="@dimen/_173sdp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/_67sdp"
+        card_view:cardCornerRadius="@dimen/_10sdp"
+        card_view:cardElevation="@dimen/_8sdp"
+        card_view:cardUseCompatPadding="true">
+
+        <TextView
+            android:id="@+id/slide_desc"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:padding="@dimen/_7sdp"
+            android:shadowColor="#B71C1C"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2"
+            android:text="@string/desc_1"
+            android:textColor="#000000"
+            android:textSize="@dimen/_18ssp"
+            android:textStyle="bold"
+            app:fontFamily="sans-serif" />
+    </android.support.v7.widget.CardView>
+</RelativeLayout>

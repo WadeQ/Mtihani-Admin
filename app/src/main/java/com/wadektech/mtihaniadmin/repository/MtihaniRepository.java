@@ -57,7 +57,6 @@ public class MtihaniRepository {
         }
     }
 
-
     public void getAdminPassword() {
         adminPassword = InjectorUtils.provideSingleLiveEvent();
         FirebaseFirestore db = FirebaseFirestore.getInstance();

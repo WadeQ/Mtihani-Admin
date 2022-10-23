@@ -1,5 +1,6 @@
 package com.wadektech.mtihaniadmin.ui;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProviders;
 
@@ -20,12 +21,17 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.wadektech.mtihaniadmin.R;
 import com.wadektech.mtihaniadmin.viewmodels.AdminPanelViewModel;
+
+import java.util.Objects;
 
 import timber.log.Timber;
 
@@ -52,8 +58,7 @@ public class LoginActivity extends AppCompatActivity {
         googleLogin = findViewById (R.id.tv_google_login);
         mCheckPassword = findViewById(R.id.password_check);
 
-        viewModel = ViewModelProviders.of(LoginActivity.this)
-                .get(AdminPanelViewModel.class);
+        viewModel = ViewModelProviders.of(LoginActivity.this).get(AdminPanelViewModel.class);
         mAuth = FirebaseAuth.getInstance ();
         mAuth = FirebaseAuth.getInstance ();
 
@@ -65,20 +70,29 @@ public class LoginActivity extends AppCompatActivity {
             } else if (TextUtils.isEmpty (password)) {
                 loginPassword.setError ("Please enter a strong email of more that 6 characters!");
             } else {
-                mAuth.signInWithEmailAndPassword (email, password).addOnCompleteListener (task -> {
-                    if (task.isSuccessful ()) {
-                        viewModel.signInReturningUser(email);
-                    } else {
-                        Toast.makeText (getApplicationContext (),
-                                "Authentication Failed! Please check your network and try again"
-                                        + task.getException (), Toast.LENGTH_SHORT).show ();
-                    }
-                });
+                mAuth.signInWithEmailAndPassword(email, password)
+                        .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if (task.isSuccessful()) {
+//                                    viewModel.signInReturningUser(email);
+                                    Intent intent = new Intent (LoginActivity.this,
+                                            AdminPanelActivity.class);
+                                    finish();
+                                    startActivity (intent);
+                                } else {
+                                    Toast.makeText (getApplicationContext (),
+                                            "Authentication Failed! "
+                                                    + Objects.requireNonNull(task.getException()).getMessage(),
+                                            Toast.LENGTH_SHORT).show ();
+                                }
+                            }
+                        });
             }
         });
 
         btnSignUp.setOnClickListener (v -> {
-            Intent intent = new Intent (this, SignUpActivity.class);
+            Intent intent = new Intent (LoginActivity.this, SignUpActivity.class);
             finish();
             startActivity (intent);
         });

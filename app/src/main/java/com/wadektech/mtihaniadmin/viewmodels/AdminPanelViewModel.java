@@ -1,6 +1,7 @@
 package com.wadektech.mtihaniadmin.viewmodels;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.util.Log;
@@ -13,11 +14,14 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.wadektech.mtihaniadmin.pojo.PDFObject;
 import com.wadektech.mtihaniadmin.pojo.User;
 import com.wadektech.mtihaniadmin.repository.MtihaniRepository;
+import com.wadektech.mtihaniadmin.ui.AdminPanelActivity;
 import com.wadektech.mtihaniadmin.ui.MtihaniRevise;
 import com.wadektech.mtihaniadmin.utils.Constants;
 import com.wadektech.mtihaniadmin.utils.SingleLiveEvent;
 
 import java.util.List;
+
+import timber.log.Timber;
 
 public class AdminPanelViewModel extends ViewModel {
     private MtihaniRepository mRepository;
@@ -73,9 +77,9 @@ public class AdminPanelViewModel extends ViewModel {
                                     editor.putString(Constants.userId,user.getUserId());
                                     editor.putString(Constants.imageURL,user.getImageURL());
                                     editor.commit();
-                                    Log.d("ChatActivityViewModel","userId is"+user.getUserId()
-                                            +" username is: "+user.getUsername()+" email is: "+user.getEmail()
-                                            +" imageURL is "+user.getImageURL());
+                                    Timber.tag("ChatActivityViewModel").d("userId is" + user.getUserId()
+                                            + " username is: " + user.getUsername() + " email is: " + user.getEmail()
+                                            + " imageURL is " + user.getImageURL());
                                     returningUser.setValue("success");
                                 }else{
                                     returningUser.setValue("fail");
@@ -87,7 +91,7 @@ public class AdminPanelViewModel extends ViewModel {
                     } else {
                         returningUser.setValue("error");
                         if (task.getException() != null) {
-                            Log.d("ChatActivityViewModel", "error is:" + task.getException().toString());
+                            Timber.tag("ChatActivityViewModel").d("error is:%s", task.getException().toString());
                         }
                     }
                 });

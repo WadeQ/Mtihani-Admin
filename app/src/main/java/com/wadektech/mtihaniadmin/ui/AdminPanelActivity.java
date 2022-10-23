@@ -1,6 +1,7 @@
 package com.wadektech.mtihaniadmin.ui;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -62,14 +63,15 @@ public class AdminPanelActivity extends AppCompatActivity implements AdapterView
     private String[] input = {"NOT SET","KCSE 1995","KCSE 1996","KCSE 1997","KCSE 1998","KCSE 1999",
             "KCSE 2000", "KCSE 2001", "KCSE 2002", "KCSE 2003", "KCSE 2004","KCSE 2005",
             "KCSE 2006","KCSE 2007","KCSE 2008","KCSE 2009","KCSE 2010","KCSE 2011","KCSE 2012",
-            "KCSE 2013", "KCSE 2014", "KCSE 2015", "KCSE 2016", "KCSE 2017", "KCSE 2018","KCSE 2019"
-            ,"KCSE ANSWERS"};
+            "KCSE 2013", "KCSE 2014", "KCSE 2015", "KCSE 2016", "KCSE 2017", "KCSE 2018","KCSE 2019",
+            "KCSE 2020","KCSE 2021","KCSE ANSWERS"};
 
     FirebaseStorage storage;
     FirebaseDatabase database;
     ProgressDialog pDialog;
     Uri pdfUri;
 
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -253,6 +255,7 @@ public class AdminPanelActivity extends AppCompatActivity implements AdapterView
         });
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
     private void preCheck() {
         //check permissions first!
         int gallery_permission = ContextCompat
@@ -289,6 +292,7 @@ public class AdminPanelActivity extends AppCompatActivity implements AdapterView
     }
 
 
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
     private void choosePDF() {
         Intent intent = new Intent();
         intent.setType("application/pdf");
